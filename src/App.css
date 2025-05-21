@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+span {
+  font-size: 24px;
+}
+input.border.p-2.flex-grow.rounded {
+  padding: 10px 30px;
+}
+button.bg-blue-600.text-white.px-4.rounded {
+  border: none;
+  padding: 12px 18px;
+  margin-left: 9px;
+  border-radius: 10px;
+}
+
+button.bg-blue-500.text-white.px-3.rounded {
+  border: none;
+  padding: 8px 14px;
+  margin-left: 18px;
+  margin-right: 4px;
+  border-radius: 10px;
+}
+button.bg-yellow-400.px-3.rounded {
+  border: none;
+  padding: 8px 14px;
+  margin-left: 18px;
+  margin-right: 4px;
+  border-radius: 10px;
+}
+button.bg-green-500.text-white.px-3.rounded {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+li.p-3.rounded.border.flex.justify-between.items-center.bg-white {
+  display: flex;
+}
