@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Counter from "./components/Counter";
 import "./App.css";
 
@@ -7,17 +7,17 @@ export default function App() {
   const [focusCount, setFocusCount] = useState(0);
 
   const handleFocus = () => {
-    console.log("Input focused", inputRef.current);
     setFocusCount((prev) => prev + 1);
-  };  
+  };
 
   const focusInput = () => {
     inputRef.current?.focus();
+    console.log("focusInput called: inputRef.current.focus() executed");
   };
 
   return (
     <div className="app-container">
-      <h1 className="app-title">useReducer + useRef Example</h1>
+      <h1 className="app-title">useReducer + useRef</h1>
       <input
         className="app-input"
         ref={inputRef}

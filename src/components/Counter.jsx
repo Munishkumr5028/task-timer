@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 const initialState = { count: 0 };
 
@@ -7,8 +7,7 @@ function reducer(state, action) {
     case "increment":
       return { count: state.count + 1 };
     case "decrement":
-      if (state.count > 0) return { count: state.count - 1 };
-      return state;
+      return state.count > 0 ? { count: state.count - 1 } : state;
     default:
       return state;
   }
