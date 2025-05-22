@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <h1 className="app-title">useReducer + useRef Example</h1>
+      <h1 className="app-title">useReducer + useRef </h1>
       <input className="app-input" ref={inputRef} placeholder="Type something..." />
       <button className="app-button" onClick={focusInput}>Focus Input</button>
       <Counter />
