@@ -1,17 +1,14 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
-const initialState = { count: 0 }; 
+const initialState = { count: 0 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "increment":
       return { count: state.count + 1 };
     case "decrement":
-      if (state.count > 0) {
-        return { count: state.count - 1 };
-      } else {
-        return state;
-      }
+      if (state.count > 0) return { count: state.count - 1 };
+      return state;
     default:
       return state;
   }
@@ -19,6 +16,10 @@ function reducer(state, action) {
 
 export default function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    console.log("Counter rendered, count:", state.count);
+  });
 
   return (
     <div className="counter-container">
