@@ -3,12 +3,13 @@ import Counter from "./components/Counter";
 import "./App.css";
 
 export default function App() {
-  const inputRef = useRef("");
+  const inputRef = useRef(null);
+  const inputValueRef = useRef("");
 
   const [focusCount, setFocusCount] = useState(0);
 
   useEffect(() => {
-    console.log("Component mounted - no re-render on typing with useRef");
+    console.log("Component mounted - useRef used for input focus & value");
   }, []);
 
   const handleFocus = () => {
@@ -16,25 +17,28 @@ export default function App() {
   };
 
   const handleChange = (e) => {
-    inputRef.current = e.target.value;
+    inputValueRef.current = e.target.value;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted value (useRef):", inputRef.current);
+    console.log("Submitted value (useRef):", inputValueRef.current);
   };
 
   const focusInput = () => {
-    document.querySelector(".app-input").focus();
-    console.log("focusInput called: input focused");
+    if (inputRef.current) {
+      inputRef.current.focus();
+      console.log("focusInput called: input focused using useRef");
+    }
   };
 
   return (
     <div className="app-container">
-      <h1 className="app-title">useReducer + useRef</h1>
+      <h1 className="app-title">useRef + useReducer</h1>
 
       <form onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           className="app-input"
           placeholder="Click button or focus me"
           onFocus={handleFocus}
@@ -56,13 +60,12 @@ export default function App() {
   );
 }
 
-
 // import { useRef, useState, useEffect } from "react";
 // import Counter from "./components/Counter";
 // import "./App.css";
 
 // export default function App() {
-//   const inputRef = useRef(""); 
+//   const inputRef = useRef("");
 
 //   const [inputValue, setInputValue] = useState("");
 
@@ -104,7 +107,7 @@ export default function App() {
 //           placeholder="Click button or focus me"
 //           onFocus={handleFocus}
 //           onChange={handleChange}
-//           value={inputValue} 
+//           value={inputValue}
 //         />
 //         <button className="app-button" type="submit">
 //           Submit
